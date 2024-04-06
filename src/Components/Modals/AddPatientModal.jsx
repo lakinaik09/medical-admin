@@ -1,10 +1,23 @@
 import React from 'react'
+import { IoMdClose } from "react-icons/io";
+import "../../App.css"
 
-const AddPatientModal = () => {
+
+const AddPatientModal = ({closeModal}) => {
   return (
     <>
-    <div className="bg fixed left-0 top-0 bg-black bg-opacity-20 w-screen h-screen flex justify-center items-center z-[9999]">
-        <div className='add-patient-modal min-w-96 bg-white '>
+    <div className="fixed left-0 top-0 bg-black bg-opacity-60 backdrop-blur-sm w-screen h-screen flex justify-center items-center z-[9999] modal" onClick={closeModal}>
+
+
+
+        <div className='add-patient-modal min-w-96 bg-white relative p-4'>
+
+          <div className="absolute -right-2 -top-2">
+            <button className='bg-blue-600 hover:bg-blue-800 hover:text-slate-300 hover:rotate-180 duration-300 text-white rounded-full p-2' onClick={closeModal}>
+            <IoMdClose className='text-xl'/>
+            </button>
+          </div>
+
             <div className="select-patient p-4 border-b outline-1 outline-blue-600 w-full-b">
                 <select name="patients" id="patients" className='border outline-1 p-1 outline-blue-600 w-full'>
                   {/* <input type="text" name="" id="" className='border outline-1 outline-blue-600 w-full bg-white'/> */}
@@ -52,11 +65,23 @@ const AddPatientModal = () => {
                     
                    </select>
                   </div>
+                  <div className='col-span-2'>
+                    <label htmlFor="message" className='font-semibold'>Message  <span className="text-red-600 font-bold text-xl relative top-1">*</span></label>
+                    <input type="text" name="message" id="message" className='border outline-1 outline-blue-600 w-full p-1'/>
+                  </div>
+                  <div className=''>
+                    <label htmlFor="Status" className='font-semibold'>Status<span className="text-red-600 font-bold text-xl relative top-1">*</span></label>
+                    <select name="status" id="status" className='border outline-1 outline-blue-600 w-full p-1'>
+                      <option value="pending">Pending</option>
+                      <option value="approve">Approve</option>
+                      <option value="cancel">Cancel</option>
+                    </select>
+                  </div>
 
                   
                 </div>
                 <div className="button text-end p-4">
-                  <button className='px-2 py-1 bg-blue-600 text-white rounded-sm'>Save</button>
+                  <button className='px-2 py-1 bg-blue-600 text-white rounded-sm hover:bg-blue-800 duration-300 dur'>Save</button>
                 </div>
               </form>
             </div>

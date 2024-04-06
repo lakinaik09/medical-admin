@@ -21,20 +21,8 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <nav  className="flex justify-between items-center bg-indigo-950 text-white p-2">
-          <div className="left-side-tabs flex items-center">
-           
-
-            <div className="flex items-center ps-5 gap-2">
-              <div className="w-12 h-12 rounded-full overflow-hidden">
-              <img src={Logo1} alt="sai saburi hospital" className=""/>
-              </div>
-               {/* <h4 className={`font-bold ${open ? "w-auto" : "w-0 "} overflow-hidden transition-all duration-500`}>SAI SABURI HOSPITAL PVT. LTD.</h4> */}
-              <button>
-                <MdMenu className="text-2xl font-semibold" onClick={()=>setOpen(!open)}/>
-              </button>
-            </div>
-          </div>
+        <nav  className="flex justify-end items-center bg-indigo-950 text-white p-2 w-full">
+         
           <div className="right-side-tabs flex items-center">
             <div className="searchbar bg-slate-700 flex items-cente px-3">
               <input
@@ -53,7 +41,7 @@ const Navbar = () => {
                 <li className="relative">
                   <Link>
                     <IoIosNotificationsOutline className="text-2xl"/>
-                    <span className="absolute -top-6 -right-2 text-xs bg-orange-500 text-white rounded-full p-1">100</span>
+                    <span className="absolute -top-2 -right-1 text-xs bg-orange-500 text-white rounded-full w-4 h-4 flex justify-center items-center">1</span>
                   </Link>
                 </li>
                 <li>
