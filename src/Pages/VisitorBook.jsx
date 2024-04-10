@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Layout from "../Components/Layout";
 import { FiColumns } from "react-icons/fi";
 import {
@@ -10,17 +10,19 @@ import {
 } from "react-icons/ai";
 import { MdOutlineContentCopy } from "react-icons/md";
 import { BsFiletypeCsv } from "react-icons/bs";
-import AddPatient from "../Components/Modals/AddPatientModal";
-import AddPatientModal from "../Components/Modals/AddPatientModal";
 import NoData from "../Components/NoData";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { TiArrowSortedDown } from "react-icons/ti";
+import AddVisitorModal from "../Components/Modals/AddVisitorModal";
 
 
-const FrontOffice = () => {
+
+
+const VisitorBook = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  
   const openModal = (e) => {
     setIsModalOpen(true);
   };
@@ -33,59 +35,26 @@ const FrontOffice = () => {
 
   return (
     <Layout>
+
+
+
       <div className="bg-white border rounded-sm">
         <div className="header py-2 px-3 flex justify-between border-b">
           <div>
-            <h1>Appointment Details</h1>
+            <h1>Visitor List</h1>
           </div>
           <div className="">
-            <ul className="flex gap-4">
-              <li>
-                <button
+          <button
                   className=" bg-black text-white p-1 flex items-center gap-1 text-xs"
                   onClick={openModal}
                 >
-                  +Add Appointment
+                  +Add Visitor
                 </button>
-              </li>
-              <li>
-                <Link to={'/admin/visitors'} className=" bg-black text-white p-1 flex items-center gap-1 text-xs">
-                  <FaBars className="inline-block" />
-                  <span>Visitor Book</span>
-                </Link>
-              </li>
-              <li>
-                <button className=" bg-black text-white p-1 flex items-center gap-1 text-xs">
-                  <FaBars className="inline-block" />
-                  <span>Phone Call Log</span>
-                </button>
-              </li>
-              <li>
-                <button className=" bg-black text-white p-1 flex items-center gap-1 text-xs">
-                  <FaBars className="inline-block" />
-                  <span>Postal</span>
-                </button>
-                <ul className="hidden">
-                  <li>
-                    <NavLink>Recieve</NavLink>
-                  </li>
-                  <li>
-                    <NavLink>Dispatch</NavLink>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button className=" bg-black text-white p-1 flex items-center gap-1 text-xs">
-                  <FaBars className="inline-block" />
-                  <span>Compain</span>
-                </button>
-              </li>
-            </ul>
+          {isModalOpen && <AddVisitorModal closeModal={closeModal} />}
           </div>
 
           {/* ================Modal================ */}
 
-          {isModalOpen && <AddPatientModal closeModal={closeModal} />}
         </div>
         <div className="flex justify-between p-4">
           <div className="search-box w-40">
@@ -98,7 +67,9 @@ const FrontOffice = () => {
             />
           </div>
           <div className="icons border-b flex gap-1">
-            <button title="Copy"><MdOutlineContentCopy /></button>
+            <button title="Copy">
+              <MdOutlineContentCopy />
+            </button>
             <button title="Excel">
               <AiOutlineFileExcel />
             </button>
@@ -124,19 +95,13 @@ const FrontOffice = () => {
                 <tr className="">
                   <th className="py-2 ps-1 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Patient Name</span>
+                      <span>Purpose</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Appointment No</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>Date</span>
+                      <span>Name</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
@@ -148,13 +113,19 @@ const FrontOffice = () => {
                   </th>
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Gender</span>
+                      <span>Date</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Doctor</span>
+                      <span>In Time</span>
+                      <TiArrowSortedDown />
+                    </button>
+                  </th>
+                  <th className="py-2 text-start bg-slate-50 text-slate-600">
+                    <button className="flex items-center font-medium">
+                      <span>Out Time</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
@@ -164,12 +135,7 @@ const FrontOffice = () => {
                       <TiArrowSortedDown />
                     </button>
                   </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>Status</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
+                  
                 </tr>
               </thead>
             </table>
@@ -197,4 +163,4 @@ const FrontOffice = () => {
   );
 };
 
-export default FrontOffice;
+export default VisitorBook;
