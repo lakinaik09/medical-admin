@@ -1,30 +1,31 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
 import "../../App.css";
+import { FaPlus } from "react-icons/fa";
 
 const AddPatientModal = ({ closeModal }) => {
   return (
     <>
       <div className="fixed left-0 top-0 bg-black bg-opacity-60 backdrop-blur-sm w-screen h-screen flex justify-center items-center z-[9999] modal">
-        <div className="add-patient-modal min-w-96 bg-white relative">
+        <div className="add-patient-modal w-[750px] bg-white relative">
         <div className="flex justify-between items-center bg-slate-100 p-2">
-            <h2 className="text-slate-500">Add Appointment</h2>
+            <h2 className="text-slate-500 font-semibold"> Add Appointment</h2>
             <div className="">
               <button
-                className="bg-blue-600 hover:bg-blue-800 hover:text-slate-300 hover:rotate-180 duration-300 text-white rounded-full p-1"
+                className="bg-red-600 hover:bg-red-600 hover:text-slate-100 hover:rotate-180 duration-300 text-white rounded-full p-1"
                 onClick={closeModal}
               >
                 <IoMdClose className="text-xl" />
               </button>
             </div>
           </div>
-          <div className="select-patient p-4 border-b outline-1 outline-blue-600 w-full-b flex justify-between">
+          <div className="select-patient p-4 border-b focus:outline outline-blue-600 w-full-b flex justify-between">
             <select
               name="patients"
               id="patients"
-              className="border outline-1 p-1 outline-blue-600 w-full"
+              className="border focus:outline p-1 outline-blue-600 w-full"
             >
-              {/* <input type="text" name="" id="" className='border outline-1 outline-blue-600 w-full bg-white'/> */}
+              {/* <input type="text" name="" id="" className='border focus:outline outline-blue-600 w-full bg-white'/> */}
               <option value="">Select Patient</option>
             </select>
             {/* <div className="">
@@ -51,7 +52,7 @@ const AddPatientModal = ({ closeModal }) => {
                     type="text"
                     name="name"
                     id="name"
-                    className="border outline-1 outline-blue-600 w-full p-1"
+                    className="border focus:outline outline-blue-600 w-full p-1"
                   />
                 </div>
                 <div>
@@ -66,7 +67,7 @@ const AddPatientModal = ({ closeModal }) => {
                     type="text"
                     name=""
                     id="patientName"
-                    className="border outline-1 outline-blue-600 w-full p-1"
+                    className="border focus:outline outline-blue-600 w-full p-1"
                   />
                 </div>
                 <div>
@@ -80,7 +81,7 @@ const AddPatientModal = ({ closeModal }) => {
                   <select
                     name="gender"
                     id="gender"
-                    className="border outline-1 outline-blue-600 w-full p-1"
+                    className="border focus:outline outline-blue-600 w-full p-1"
                   >
                     <option value="">Select</option>
                     <option value="male">Male</option>
@@ -97,7 +98,7 @@ const AddPatientModal = ({ closeModal }) => {
                     type="text"
                     name="email"
                     id="email"
-                    className="border outline-1 outline-blue-600 w-full p-1"
+                    className="border focus:outline outline-blue-600 w-full p-1"
                   />
                 </div>
                 <div>
@@ -112,7 +113,7 @@ const AddPatientModal = ({ closeModal }) => {
                     type="text"
                     name=""
                     id="phone"
-                    className="border outline-1 outline-blue-600 w-full p-1"
+                    className="border focus:outline outline-blue-600 w-full p-1"
                   />
                 </div>
                 <div>
@@ -126,7 +127,7 @@ const AddPatientModal = ({ closeModal }) => {
                   <select
                     name="gender"
                     id="Doctore"
-                    className="border outline-1 outline-blue-600 w-full p-1"
+                    className="border focus:outline outline-blue-600 w-full p-1"
                   >
                     {/* <input type="text" name="" id=" " className='border p-1 w-full'/> */}
                     <option value="">Select</option>
@@ -139,24 +140,22 @@ const AddPatientModal = ({ closeModal }) => {
                       *
                     </span>
                   </label>
-                  <input
-                    type="text"
+                  <textarea
                     name="message"
+                    rows={1}
                     id="message"
-                    className="border outline-1 outline-blue-600 w-full p-1"
-                  />
+                    className="border focus:outline outline-blue-600 w-full p-1"
+                  ></textarea>
                 </div>
                 <div className="">
                   <label htmlFor="Status" className="">
                     Status
-                    <span className="text-red-600 font-bold text-xl relative top-1">
-                      *
-                    </span>
+                 
                   </label>
                   <select
                     name="status"
                     id="status"
-                    className="border outline-1 outline-blue-600 w-full p-1"
+                    className="border focus:outline outline-blue-600 w-full p-2"
                   >
                     <option value="pending">Pending</option>
                     <option value="approve">Approve</option>

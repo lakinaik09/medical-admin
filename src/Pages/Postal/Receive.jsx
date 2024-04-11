@@ -1,28 +1,20 @@
-import React, { useState } from "react";
-import { FaBars, FaPlus } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
-import Layout from "../Components/Layout";
-import { FiColumns } from "react-icons/fi";
-import {
-  AiOutlineFileExcel,
-  AiOutlineFilePdf,
-  AiOutlinePrinter,
-} from "react-icons/ai";
-import { MdOutlineContentCopy } from "react-icons/md";
-import { BsFiletypeCsv } from "react-icons/bs";
-import NoData from "../Components/NoData";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
-import { TiArrowSortedDown } from "react-icons/ti";
-import AddVisitorModal from "../Components/Modals/AddVisitorModal";
+import { MdOutlineContentCopy } from 'react-icons/md';
+import Layout from '../../Components/Layout';
+import AddReceiveModal from '../../Components/Modals/AddReceiveModal';
+import NoData from '../../Components/NoData';
+import { AiOutlineFileExcel, AiOutlineFilePdf, AiOutlinePrinter } from 'react-icons/ai';
+import { BsFiletypeCsv } from 'react-icons/bs';
+import { FiColumns } from 'react-icons/fi';
+import { TiArrowSortedDown } from 'react-icons/ti';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useState } from 'react';
+import { FaPlus } from 'react-icons/fa';
 
 
 
+const Receive = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-const VisitorBook = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  
   const openModal = (e) => {
     setIsModalOpen(true);
   };
@@ -31,26 +23,21 @@ const VisitorBook = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-
   return (
     <Layout>
-
-
-
-      <div className="bg-white border rounded-sm">
+        <div className="bg-white border rounded-sm">
         <div className="header py-2 px-3 flex justify-between border-b">
           <div>
-            <h1>Visitor List</h1>
+            <h1>Postal Receive List</h1>
           </div>
           <div className="">
           <button
                   className=" bg-black text-white p-1 flex items-center gap-1 text-sm"
                   onClick={openModal}
                 >
-                  <FaPlus className="inline-block"/> <span>Add Visitor</span>
+                  <FaPlus className='inline-block'/> Add Receive
                 </button>
-          {isModalOpen && <AddVisitorModal closeModal={closeModal} />}
+          {isModalOpen && <AddReceiveModal closeModal={closeModal} />}
           </div>
 
           {/* ================Modal================ */}
@@ -95,19 +82,19 @@ const VisitorBook = () => {
                 <tr className="">
                   <th className="py-2 ps-1 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Purpose</span>
+                      <span>From Title</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Name</span>
+                      <span>Reference No</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Phone</span>
+                      <span>To Title</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
@@ -117,18 +104,7 @@ const VisitorBook = () => {
                       <TiArrowSortedDown />
                     </button>
                   </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>In Time</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>Out Time</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
+                 
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
                       <span>Action</span>
@@ -160,7 +136,7 @@ const VisitorBook = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default VisitorBook;
+export default Receive

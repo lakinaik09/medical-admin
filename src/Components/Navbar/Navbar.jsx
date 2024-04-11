@@ -41,7 +41,7 @@ const Navbar = () => {
                 <li className="relative">
                   <Link>
                     <IoIosNotificationsOutline className="text-2xl"/>
-                    <span className="absolute -top-2 -right-1 text-xs bg-orange-500 text-white rounded-full w-4 h-4 flex justify-center items-center">1</span>
+                    <span className="absolute -top-2 -right-1 text-sm bg-orange-500 text-white rounded-full w-4 h-4 flex justify-center items-center">1</span>
                   </Link>
                 </li>
                 <li>

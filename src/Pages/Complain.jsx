@@ -1,27 +1,19 @@
-import React, { useState } from "react";
-import { FaBars } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa6";
-
-import { Link, NavLink } from "react-router-dom";
-import Layout from "../Components/Layout";
-import { FiColumns } from "react-icons/fi";
-import {
-  AiOutlineFileExcel,
-  AiOutlineFilePdf,
-  AiOutlinePrinter,
-} from "react-icons/ai";
-import { MdOutlineContentCopy } from "react-icons/md";
-import { BsFiletypeCsv } from "react-icons/bs";
-import AddPatient from "../Components/Modals/AddPatientModal";
-import AddPatientModal from "../Components/Modals/AddPatientModal";
-import NoData from "../Components/NoData";
-import { IoIosArrowBack } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
-import { TiArrowSortedDown } from "react-icons/ti";
+import { MdOutlineContentCopy } from 'react-icons/md';
+import { AiOutlineFileExcel, AiOutlineFilePdf, AiOutlinePrinter } from 'react-icons/ai';
+import { BsFiletypeCsv } from 'react-icons/bs';
+import { FiColumns } from 'react-icons/fi';
+import { TiArrowSortedDown } from 'react-icons/ti';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useState } from 'react';
+import { FaPlus } from 'react-icons/fa';
+import Layout from '../Components/Layout';
+import AddComplainModal from '../Components/Modals/AddComplainModal';
+import NoData from '../Components/NoData';
 
 
-const FrontOffice = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
+const Complain = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = (e) => {
     setIsModalOpen(true);
@@ -31,64 +23,25 @@ const FrontOffice = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-
   return (
     <Layout>
-      <div className="bg-white border rounded-sm">
+        <div className="bg-white border rounded-sm">
         <div className="header py-2 px-3 flex justify-between border-b">
           <div>
-            <h1>Appointment Details</h1>
+            <h1>Complain List</h1>
           </div>
-          <div className="z-50 ">
-            <ul className="flex gap-4 ">
-              <li>
-                <button
-                  className=" bg-black text-white px-2 py-1 flex items-center gap-1 text-sm"
+          <div className="">
+          <button
+                  className=" bg-black text-white p-1 flex items-center gap-1 text-sm"
                   onClick={openModal}
                 >
-                  <FaPlus className="inline-block"/>
-                  Add Appointment
+                  <FaPlus className='inline-block'/> Add Complain
                 </button>
-              </li>
-              <li>
-                <Link to={'/admin/visitors'} className=" bg-black text-white px-2 py-1 flex items-center gap-1 text-sm">
-                  <FaBars className="inline-block" />
-                  <span>Visitor Book</span>
-                </Link>
-              </li>
-              <li>
-                <Link to={'/admin/general-call'} className=" bg-black text-white px-2 py-1 flex items-center gap-1 text-sm">
-                  <FaBars className="inline-block" />
-                  <span>Phone Call Log</span>
-                </Link>
-              </li>
-              <li className="relative group">
-                <button className=" bg-black text-white px-2 py-1 flex items-center gap-1 text-sm">
-                  <FaBars className="inline-block" />
-                  <span>Postal</span>
-                </button>
-                <ul className="absolute top-6 z-10 left-0 bg-white border shadow-md w-32 hidden group-hover:block">
-                  <li className="hover:bg-slate-200 p-1">
-                    <Link to={'/admin/receive'} className="p-2">Recieve</Link>
-                  </li>
-                  <li className="hover:bg-slate-200 p-1">
-                    <Link to={'/admin/dispatch'} className="p-2">Dispatch</Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <Link to={'/admin/complaint'} className=" bg-black text-white px-2 py-1 flex items-center gap-1 text-sm">
-                  <FaBars className="inline-block" />
-                  <span>Compain</span>
-                </Link>
-              </li>
-            </ul>
+          {isModalOpen && <AddComplainModal closeModal={closeModal} />}
           </div>
 
           {/* ================Modal================ */}
 
-          {isModalOpen && <AddPatientModal closeModal={closeModal} />}
         </div>
         <div className="flex justify-between p-4">
           <div className="search-box w-40">
@@ -101,7 +54,9 @@ const FrontOffice = () => {
             />
           </div>
           <div className="icons border-b flex gap-1">
-            <button title="Copy"><MdOutlineContentCopy /></button>
+            <button title="Copy">
+              <MdOutlineContentCopy />
+            </button>
             <button title="Excel">
               <AiOutlineFileExcel />
             </button>
@@ -127,37 +82,13 @@ const FrontOffice = () => {
                 <tr className="">
                   <th className="py-2 ps-1 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Patient Name</span>
+                      <span>Complain#</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Appointment No</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>Date</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>Phone</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>Gender</span>
-                      <TiArrowSortedDown />
-                    </button>
-                  </th>
-                  <th className="py-2 text-start bg-slate-50 text-slate-600">
-                    <button className="flex items-center font-medium">
-                      <span>Doctor</span>
+                      <span>Complain Type</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
@@ -169,10 +100,30 @@ const FrontOffice = () => {
                   </th>
                   <th className="py-2 text-start bg-slate-50 text-slate-600">
                     <button className="flex items-center font-medium">
-                      <span>Status</span>
+                      <span>Name</span>
                       <TiArrowSortedDown />
                     </button>
                   </th>
+                 
+                  <th className="py-2 text-start bg-slate-50 text-slate-600">
+                    <button className="flex items-center font-medium">
+                      <span>Phone</span>
+                      <TiArrowSortedDown />
+                    </button>
+                  </th>
+                  <th className="py-2 text-start bg-slate-50 text-slate-600">
+                    <button className="flex items-center font-medium">
+                      <span>Date</span>
+                      <TiArrowSortedDown />
+                    </button>
+                  </th>
+                  <th className="py-2 text-start bg-slate-50 text-slate-600">
+                    <button className="flex items-center font-medium">
+                      <span>Action</span>
+                      <TiArrowSortedDown />
+                    </button>
+                  </th>
+                  
                 </tr>
               </thead>
             </table>
@@ -197,7 +148,7 @@ const FrontOffice = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default FrontOffice;
+export default Complain
