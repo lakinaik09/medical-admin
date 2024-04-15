@@ -15,8 +15,8 @@ const AddVisitorModal = ({ closeModal }) => {
 
   return (
     <div>
-      <div className="fixed left-0 top-0 bg-black bg-opacity-60 backdrop-blur-sm w-screen min-h-screen overflow-y-auto flex justify-center items-center z-[9999] modal">
-        <div className="add-patient-modal w-[750px] h-[500px] overflow-y-auto  bg-white">
+      <div className="fixed left-0 top-0 bg-black bg-opacity-60 backdrop-blur-sm w-screen min-h-screen overflow-y-auto flex justify-center items-center z-[9999] modal" onClick={closeModal}>
+        <div className="add-visitor-modal w-[750px] h-[500px] overflow-y-auto  bg-white" onClick={(e)=>e.stopPropagation()}>
           {/* ===========Form Header============== */}
           <div className="flex justify-between items-center bg-slate-100 p-2">
             <h2 className="text-slate-500 font-semibold">Add Visitor</h2>

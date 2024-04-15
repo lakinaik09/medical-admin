@@ -8,8 +8,8 @@ const AddReceiveModal = ({ closeModal }) => {
 
   return (
     <div>
-      <div className="fixed left-0 top-0 bg-black bg-opacity-60 backdrop-blur-sm w-screen h-screen flex justify-center items-center z-[9999] modal">
-        <div className="add-patient-modal w-[750px] bg-white">
+      <div className="fixed left-0 top-0 bg-black bg-opacity-60 backdrop-blur-sm w-screen h-screen flex justify-center items-center z-[9999] modal" onClick={closeModal}>
+        <div className="add-recieve-modal w-[750px] bg-white" onClick={(e)=>e.stopPropagation()}>
           {/* ===========Form Header============== */}
           <div className="flex justify-between items-center bg-slate-100 p-2">
             <h2 className="text-slate-500 font-semibold"> Add Receive</h2>

@@ -88,7 +88,11 @@ const FrontOffice = () => {
 
           {/* ================Modal================ */}
 
-          {isModalOpen && <AddPatientModal closeModal={closeModal} />}
+          <div className={`fixed left-0 top-0 bg-black bg-opacity-60 backdrop-blur-sm w-screen h-screen ${isModalOpen?'flex':'hidden'} justify-center items-center z-[9999] modal  `} onClick={closeModal}>
+
+          <AddPatientModal closeModal={closeModal} />
+          </div>
+
         </div>
         <div className="flex justify-between p-4">
           <div className="search-box w-40">
