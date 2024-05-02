@@ -21,8 +21,8 @@ const Navbar = () => {
   return (
     <>
       <header>
-        <nav  className="flex justify-end items-center bg-indigo-950 text-white p-2 w-full">
-         
+        <nav  className="flex justify-between items-center bg-indigo-950 text-white p-2 w-full">
+         <h1 className="font-semibold tracking-wider text-blue-400">SAI SABURI PVT. LTD.</h1>
           <div className="right-side-tabs flex items-center">
             <div className="searchbar bg-slate-700 flex items-cente px-3">
               <input
